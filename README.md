@@ -13,7 +13,7 @@ O sistema permite gerenciar todo o fluxo de trabalho de uma assistência técnic
 
 ## 🏗 Arquitetura
 
-![Diagrama de Componentes](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/component_diagram.puml)
+![Diagrama de Componentes](./docs/images/component_diagram.png)
 
 O sistema é composto por:
 - **Aplicação Desktop (WPF)**: Sistema principal de gerenciamento
@@ -22,9 +22,27 @@ O sistema é composto por:
 - **Banco de Dados**: Armazenamento centralizado
 - **Serviço de Armazenamento**: Para fotos e documentos
 
-### Fluxo de Dados
+### Fluxo de Atualização de Status
+
+![Diagrama de Sequência](./docs/images/sequence_status_update.png)
+
+O diagrama acima ilustra o fluxo de atualização de status de uma Ordem de Serviço:
+1. O técnico captura fotos e atualiza o status via aplicativo mobile
+2. O app envia os dados para a API
+3. A API salva as imagens no serviço de armazenamento
+4. O status é atualizado no banco de dados
+5. O sistema desktop é notificado das alterações
+6. O cliente pode consultar o novo status através do sistema desktop
+
+### Fluxo de Dados do Sistema
 
 ![Diagrama de Fluxo](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/data_flow_diagram.puml)
+
+Este diagrama demonstra a interação entre os diferentes componentes do sistema:
+- Comunicação entre o app mobile e a API
+- Integração com o serviço de armazenamento de imagens
+- Sincronização de dados com o sistema desktop
+- Fluxo de consultas e atualizações no banco de dados
 
 ## 🛠 Funcionalidades Principais
 
