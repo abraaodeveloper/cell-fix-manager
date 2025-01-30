@@ -5,7 +5,6 @@ title Diagrama de Componentes - Sistema de Ordem de Serviço
 
 package "Sistema Desktop" {
     [WPF Application] as desktop
-    [Local Database] as localDB
 }
 
 package "Mobile App" {
@@ -21,7 +20,6 @@ cloud "Cloud Services" {
 mobile -down-> api : HTTP/REST
 api -right-> storage : Salva Imagens
 api <-down-> db : CRUD Operations
-desktop <-right-> api : Sync/Updates
-desktop <-down-> localDB : Local Storage
+desktop <-right-> api : HTTP/REST
 
 @enduml

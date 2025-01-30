@@ -22,13 +22,15 @@ Este projeto consiste em um **sistema de ordem de serviço** voltado para assist
 O sistema foi projetado para que todos os dados sejam armazenados e gerenciados pelo **WebService Laravel**, permitindo que qualquer aplicação (desktop, mobile ou web) possa acessar as informações de forma centralizada.
 
 ### **Diagrama de Componentes**
-![Diagrama de Componentes](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/component_diagram.puml)
+![Fluxo de Dados](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/docs/component_diagram.puml)
 
 ### **Fluxo de Dados**
-![Fluxo de Dados](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/data_flow_diagram.puml)
+![Fluxo de Dados](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/docs/data_flow_diagram.puml)
+
+
 
 ### **Sequência - Atualização de Status**
-![Diagrama de Sequência](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/sequence_status_update.puml)
+![Diagrama de Sequência](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/docs/sequence_status_update.puml)
 
 ---
 
@@ -63,8 +65,8 @@ O sistema foi projetado para que todos os dados sejam armazenados e gerenciados 
 ### 🔹 Backend (Laravel)
 ```bash
 # Clone o repositório
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO/backend
+git clone https://github.com/abraaodeveloper/cell-fix-manager.git
+cd cell-fix-manager/backend
 
 # Instale as dependências
 composer install
@@ -86,7 +88,7 @@ php artisan serve
 ### 🔹 Aplicativo Mobile (React Native)
 ```bash
 # Clone o repositório e entre no diretório mobile
-cd SEU_REPOSITORIO/mobile
+cd cell-fix-manager/mobile
 
 # Instale as dependências
 npm install

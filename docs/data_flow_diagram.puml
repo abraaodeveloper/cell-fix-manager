@@ -1,19 +1,50 @@
 @startuml
-actor Tecnico
-actor Cliente
-participant "App Mobile" as Mobile
-participant "Servidor API" as API
-participant "Banco de Dados" as DB
-participant "Desktop WPF" as Desktop
-participant "Serviço de Armazenamento de Imagens" as Storage
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
-Tecnico -> Mobile : Captura foto e status
-Mobile -> API : Envia foto e status
-API -> Storage : Salva imagem
-API -> DB : Atualiza status da Ordem de Serviço
-DB -> Desktop : Notifica atualização
+title Diagrama de Componentes - Sistema de Ordem de Serviço
 
-Cliente -> Desktop : Consulta status Ordem de Serviço
-Desktop -> DB : Busca informações
-DB -> Desktop : Retorna status atualizado
+actor "Técnico" as technician
+actor "Cliente" as customer
+
+package "Sistema Desktop (Uso Técnico)" {
+    [WPF Application] as desktop #lightblue
+    note right of desktop
+        Gerenciamento de OS
+        Cadastros
+        Relatórios
+    end note
+}
+
+package "Mobile App (Uso Técnico)" {
+    [React Native App] as mobile #lightgreen
+    note right of mobile
+        Fotos do Serviço
+        Atualização de Status
+        Histórico de OS
+    end note
+}
+
+cloud "Cloud Services" {
+    [API Server] as api #orange
+    [Image Storage] as storage #pink
+    database "Database" as db #lightgray
+    [WhatsApp API] as whatsapp #yellow
+}
+
+technician --> desktop
+technician --> mobile
+
+mobile -down-> api : HTTP/REST
+desktop -right-> api : HTTP/REST
+api -right-> storage : Salva Imagens
+api <-down-> db : CRUD Operations
+api -down-> whatsapp : Envia Notificações
+whatsapp -down-> customer : Mensagens de Status
+
+note bottom of customer
+    Cliente recebe apenas
+    notificações via WhatsApp
+    sobre status da OS
+end note
+
 @enduml

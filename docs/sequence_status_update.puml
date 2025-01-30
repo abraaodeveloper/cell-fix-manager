@@ -2,18 +2,28 @@
 actor Tecnico
 actor Cliente
 participant "App Mobile" as Mobile
-participant "Servidor API" as API
-participant "Banco de Dados" as DB
 participant "Desktop WPF" as Desktop
-participant "Serviço de Armazenamento de Imagens" as Storage
+participant "Servidor API" as API
+participant "Serviço de Armazenamento" as Storage
+participant "WhatsApp API" as WhatsApp
 
-Tecnico -> Mobile : Captura foto e status
-Mobile -> API : Envia foto e status
+== Atualização de Status pelo Técnico ==
+Tecnico -> Mobile : Captura foto do serviço
+Mobile -> API : Envia foto e atualização de status
 API -> Storage : Salva imagem
-API -> DB : Atualiza status da OS
-DB -> Desktop : Notifica atualização
+API -> WhatsApp : Envia notificação de status
+WhatsApp -> Cliente : Recebe mensagem com status\ne foto do serviço
 
-Cliente -> Desktop : Consulta status OS
-Desktop -> DB : Busca informações
-DB -> Desktop : Retorna status atualizado
+== Consulta pelo Técnico ==
+Tecnico -> Desktop : Acessa histórico da OS
+Desktop -> API : Busca informações
+API -> Desktop : Retorna dados da OS\ne histórico de status
+Desktop -> Tecnico : Exibe informações
+
+note right of Cliente
+  Cliente apenas recebe
+  notificações passivas
+  via WhatsApp
+end note
+
 @enduml
