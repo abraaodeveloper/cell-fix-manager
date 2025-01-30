@@ -13,7 +13,7 @@ O sistema permite gerenciar todo o fluxo de trabalho de uma assistência técnic
 
 ## 🏗 Arquitetura
 
-![Diagrama de Componentes](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/component_diagram.puml)
+![Diagrama de Componentes](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/component_diagram.puml)
 
 O sistema é composto por:
 - **Aplicação Desktop (WPF)**: Sistema principal de gerenciamento
@@ -24,7 +24,7 @@ O sistema é composto por:
 
 ### Fluxo de Dados
 
-![Diagrama de Fluxo](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/data_flow_diagram.puml)
+![Diagrama de Fluxo](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/data_flow_diagram.puml)
 
 ## 🛠 Funcionalidades Principais
 
