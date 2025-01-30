@@ -1,0 +1,9 @@
+@startuml
+
+package "Sistema de Ordem de Serviço" {
+  [Desktop WPF] --> [Banco de Dados]
+  [Desktop WPF] --> [Servidor API]
+  [App Mobile] --> [Servidor API]
+  [Servidor API] --> [Banco de Dados]
+  [Servidor API] --> [Serviço de Armazenamento de Imagens]
+}

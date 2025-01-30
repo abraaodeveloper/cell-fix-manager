@@ -1,102 +1,106 @@
-# Sistema de Ordem de Serviço para Assistência Técnica
+# Sistema de Ordem de Serviço para Assistência Técnica de Celulares
 
-Sistema completo para gerenciamento de ordens de serviço em assistências técnicas de celulares, composto por uma aplicação desktop (WPF) e um aplicativo mobile (React Native).
+## 📌 Visão Geral
+Este projeto consiste em um **sistema de ordem de serviço** voltado para assistências técnicas de celulares, permitindo a gestão completa dos reparos, clientes, estoque de peças e fluxo financeiro. O sistema é composto por três principais componentes:
 
-## 📱 Visão Geral
-
-O sistema permite gerenciar todo o fluxo de trabalho de uma assistência técnica, desde o recebimento do aparelho até a entrega ao cliente, incluindo:
-- Gestão de ordens de serviço
-- Controle financeiro
-- Gestão de estoque
-- Registro fotográfico via app
-- Comunicação com clientes
-
-## 🏗 Arquitetura
-
-![Diagrama de Componentes](./docs/images/component_diagram.png)
-
-O sistema é composto por:
-- **Aplicação Desktop (WPF)**: Sistema principal de gerenciamento
-- **Aplicativo Mobile (React Native)**: Para registro de fotos e atualizações em campo
-- **API Server**: Integração entre o app mobile e o sistema desktop
-- **Banco de Dados**: Armazenamento centralizado
-- **Serviço de Armazenamento**: Para fotos e documentos
-
-### Fluxo de Atualização de Status
-
-![Diagrama de Sequência](./docs/images/sequence_status_update.png)
-
-O diagrama acima ilustra o fluxo de atualização de status de uma Ordem de Serviço:
-1. O técnico captura fotos e atualiza o status via aplicativo mobile
-2. O app envia os dados para a API
-3. A API salva as imagens no serviço de armazenamento
-4. O status é atualizado no banco de dados
-5. O sistema desktop é notificado das alterações
-6. O cliente pode consultar o novo status através do sistema desktop
-
-### Fluxo de Dados do Sistema
-
-![Diagrama de Fluxo](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/abraaodeveloper/cell-fix-manager/main/data_flow_diagram.puml)
-
-Este diagrama demonstra a interação entre os diferentes componentes do sistema:
-- Comunicação entre o app mobile e a API
-- Integração com o serviço de armazenamento de imagens
-- Sincronização de dados com o sistema desktop
-- Fluxo de consultas e atualizações no banco de dados
-
-## 🛠 Funcionalidades Principais
-
-### Sistema Desktop
-- Cadastro de clientes e aparelhos
-- Gestão de ordens de serviço
-- Controle de estoque de peças
-- Gestão financeira
-- Geração de relatórios
-- Impressão de OS e recibos
-
-### Aplicativo Mobile
-- Registro fotográfico dos aparelhos
-- Atualização de status das OS
-- Consulta de estoque
-- Chat interno com a loja
-- Leitura de QR Code das OS
-
-### Gestão Financeira
-- Controle de custos por serviço
-- Gestão de compra de peças
-- Cálculo de lucro por OS
-- Relatórios financeiros
-- Controle de pagamentos
+1. **Aplicação Desktop (WPF - C#)**: Interface principal para gerenciar ordens de serviço, estoque e financeiro.
+2. **Aplicativo Mobile (React Native)**: Permite técnicos cadastrarem fotos e atualizarem status remotamente.
+3. **WebService (Laravel + MySQL)**: Centraliza todas as informações para que qualquer aplicação possa consumir os dados.
 
 ## 🔧 Tecnologias Utilizadas
 
-### Desktop (WPF)
-- C# (.NET 6+)
-- WPF (XAML)
-- Entity Framework Core
-- ASP.NET Minimal API
-- iTextSharp/QuestPDF
+| Componente        | Tecnologia         |
+|------------------|------------------|
+| **Frontend Desktop** | WPF (C#) |
+| **Frontend Mobile** | React Native |
+| **Backend** | Laravel (PHP) |
+| **Banco de Dados** | MySQL |
 
-### Mobile (React Native)
-- React Native
-- Expo
-- Axios
-- React Navigation
-- React Native Camera
+---
 
-### Banco de Dados
-- MySQL/SQLite
-- Entity Framework Core
+## ⚙️ Arquitetura do Sistema
+O sistema foi projetado para que todos os dados sejam armazenados e gerenciados pelo **WebService Laravel**, permitindo que qualquer aplicação (desktop, mobile ou web) possa acessar as informações de forma centralizada.
 
-## 📋 Status do Projeto
+### **Diagrama de Componentes**
+![Diagrama de Componentes](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/component_diagram.puml)
 
-- [x] Definição da arquitetura
-- [x] Diagramas de sistema
-- [ ] Implementação do sistema desktop
-- [ ] Implementação do aplicativo mobile
-- [ ] Testes integrados
-- [ ] Documentação completa
+### **Fluxo de Dados**
+![Fluxo de Dados](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/data_flow_diagram.puml)
 
-## 📄 Licença
+### **Sequência - Atualização de Status**
+![Diagrama de Sequência](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/SEU_USUARIO/SEU_REPOSITORIO/main/sequence_status_update.puml)
 
-Este projeto está sob a licença [MIT](LICENSE).
+---
+
+## 🔥 Funcionalidades
+
+### 🖥️ **Aplicação Desktop (WPF - C#)**
+✅ Gerenciamento de Ordens de Serviço (Cadastro, Edição, Exclusão)
+✅ Impressão de Ordem de Serviço com QR Code
+✅ Controle de Estoque de Peças
+✅ Relatórios Financeiros (Lucro por Serviço, Gastos com Peças)
+✅ Histórico de Reparos por Cliente
+✅ Integração com WhatsApp para avisos automáticos
+
+### 📱 **Aplicativo Mobile (React Native)**
+✅ Captura e envio de fotos do aparelho para a OS
+✅ Atualização de Status da OS em tempo real
+✅ Chat interno entre técnico e loja
+✅ Consulta rápida de peças no estoque
+✅ Leitura de QR Code para abrir OS diretamente no app
+
+### 🌐 **WebService (Laravel + MySQL)**
+✅ API RESTful para comunicação com todas as aplicações
+✅ Gerenciamento centralizado das Ordens de Serviço
+✅ Controle de Estoque e Movimentação Financeira
+✅ Autenticação e controle de usuários
+✅ Upload e armazenamento de imagens
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+### 🔹 Backend (Laravel)
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
+cd SEU_REPOSITORIO/backend
+
+# Instale as dependências
+composer install
+
+# Configure o banco de dados
+cp .env.example .env
+nano .env  # Edite as credenciais do MySQL
+php artisan migrate --seed
+
+# Rode o servidor
+php artisan serve
+```
+
+### 🔹 Aplicação Desktop (WPF - C#)
+- Abra o projeto no **Visual Studio**
+- Configure a URL do WebService Laravel
+- Compile e execute
+
+### 🔹 Aplicativo Mobile (React Native)
+```bash
+# Clone o repositório e entre no diretório mobile
+cd SEU_REPOSITORIO/mobile
+
+# Instale as dependências
+npm install
+
+# Execute em um dispositivo/emulador
+npx expo start
+```
+
+---
+
+## 🔄 Melhorias Futuras
+🚀 Criar uma interface web para acesso via navegador
+🚀 Implementar notificações push para atualização de status
+🚀 Integração com pagamento online para clientes
+
+Se tiver dúvidas ou sugestões, abra uma issue! 😊
+

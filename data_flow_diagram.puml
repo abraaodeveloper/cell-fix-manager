@@ -1,0 +1,19 @@
+@startuml
+actor Tecnico
+actor Cliente
+participant "App Mobile" as Mobile
+participant "Servidor API" as API
+participant "Banco de Dados" as DB
+participant "Desktop WPF" as Desktop
+participant "Serviço de Armazenamento de Imagens" as Storage
+
+Tecnico -> Mobile : Captura foto e status
+Mobile -> API : Envia foto e status
+API -> Storage : Salva imagem
+API -> DB : Atualiza status da Ordem de Serviço
+DB -> Desktop : Notifica atualização
+
+Cliente -> Desktop : Consulta status Ordem de Serviço
+Desktop -> DB : Busca informações
+DB -> Desktop : Retorna status atualizado
+@enduml
