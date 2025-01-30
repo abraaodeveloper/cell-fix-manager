@@ -7,7 +7,7 @@ actor "Técnico" as technician
 actor "Cliente" as customer
 
 package "Sistema Desktop (Uso Técnico)" {
-    [WPF Application] as desktop #lightblue
+    [WPF Application] as desktop
     note right of desktop
         Gerenciamento de OS
         Cadastros
@@ -16,7 +16,7 @@ package "Sistema Desktop (Uso Técnico)" {
 }
 
 package "Mobile App (Uso Técnico)" {
-    [React Native App] as mobile #lightgreen
+    [React Native App] as mobile
     note right of mobile
         Fotos do Serviço
         Atualização de Status
@@ -25,10 +25,10 @@ package "Mobile App (Uso Técnico)" {
 }
 
 cloud "Cloud Services" {
-    [API Server] as api #orange
-    [Image Storage] as storage #pink
-    database "Database" as db #lightgray
-    [WhatsApp API] as whatsapp #yellow
+    [API Server] as api
+    [Image Storage] as storage
+    database "Database" as db
+    [WhatsApp API] as whatsapp
 }
 
 technician --> desktop
