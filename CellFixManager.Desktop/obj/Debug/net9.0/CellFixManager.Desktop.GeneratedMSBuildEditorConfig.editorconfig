@@ -15,14 +15,38 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CellFixManager.Desktop
-build_property.ProjectDir = C:\Users\abraao\Documents\Projects\cell-fix-manager\CellFixManager.Desktop\
+build_property.ProjectDir = /home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/abraao/Documents/Projects/cell-fix-manager/CellFixManager.Desktop/App.axaml]
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/abraao/Documents/Projects/cell-fix-manager/CellFixManager.Desktop/Views/MainWindow.axaml]
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Styles/GlobalStyles.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Styles/ThemeStyles.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Components/SearchBar.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Pages/ClientesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Pages/ConfiguracoesView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Pages/HomeView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Pages/NovaOSView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/abraao/Projects/cell-fix-manager/CellFixManager.Desktop/Views/Pages/OrdemServicoView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

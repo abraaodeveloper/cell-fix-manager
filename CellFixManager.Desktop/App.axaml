@@ -10,6 +10,12 @@
     </Application.DataTemplates>
   
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme/>
+        <StyleInclude Source="/Styles/GlobalStyles.axaml"/>
+        <StyleInclude Source="/Styles/ThemeStyles.axaml"/>
     </Application.Styles>
+
+    <Application.Resources>
+        <StreamGeometry x:Key="search_regular">M10.5 0.75C5.11929 0.75 0.75 5.11929 0.75 10.5C0.75 15.8807 5.11929 20.25 10.5 20.25C12.7146 20.25 14.7679 19.5377 16.4033 18.3321L20.4696 22.3984C20.7625 22.6913 21.2374 22.6913 21.5303 22.3984C21.8232 22.1055 21.8232 21.6306 21.5303 21.3377L17.4641 17.2714C18.6697 15.636 19.382 13.5827 19.382 11.368C19.382 5.98733 15.0127 1.618 10.5 1.618C5.98733 1.618 1.618 5.98733 1.618 10.5C1.618 15.0127 5.98733 19.382 10.5 19.382C15.0127 19.382 19.382 15.0127 19.382 10.5C19.382 5.98733 15.0127 1.618 10.5 1.618Z</StreamGeometry>
+    </Application.Resources>
 </Application>

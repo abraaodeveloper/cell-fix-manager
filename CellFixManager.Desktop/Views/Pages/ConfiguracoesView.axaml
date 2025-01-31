@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CellFixManager.Desktop.ViewModels.Pages"
+             x:Class="CellFixManager.Desktop.Views.Pages.ConfiguracoesView"
+             x:DataType="vm:ConfiguracoesViewModel">
+    
+    <Border Background="{DynamicResource InputBackgroundBrush}"
+            Padding="20">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Margin="20">
+                <TextBlock Text="Configurações" 
+                         FontSize="24" 
+                         FontWeight="Bold" 
+                         Margin="0,0,0,20"/>
+                
+                <!-- Estilo do Menu -->
+                <Border BorderBrush="{DynamicResource InputBorderBrush}" 
+                        BorderThickness="1" 
+                        CornerRadius="3" 
+                        Padding="10" 
+                        Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Aparência" 
+                                 FontWeight="Bold" 
+                                 Margin="0,0,0,10"/>
+                        
+                        <StackPanel Margin="10,0,0,0">
+                            <TextBlock Text="Tema:" 
+                                     Margin="0,0,0,5"/>
+                            <ComboBox ItemsSource="{Binding AvailableThemes}"
+                                    SelectedItem="{Binding SelectedTheme}"
+                                    Width="200"
+                                    HorizontalAlignment="Left"/>
+                            
+                            <TextBlock Text="Estilo do Menu:" 
+                                     Margin="0,20,0,5"/>
+                            <ComboBox SelectedIndex="{Binding MenuStyle}"
+                                    Width="200"
+                                    HorizontalAlignment="Left">
+                                <ComboBoxItem>Menu Vertical</ComboBoxItem>
+                                <ComboBoxItem>Menu Horizontal</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                
+                <!-- Botões -->
+                <StackPanel Orientation="Horizontal" 
+                          HorizontalAlignment="Right" 
+                          Spacing="10">
+                    <Button Content="Cancelar" 
+                            Classes="danger"
+                            Width="120"
+                            Height="35"/>
+                    <Button Content="Salvar" 
+                            Classes="success"
+                            Width="120"
+                            Height="35"/>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</UserControl> 

@@ -1,0 +1,137 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Styles.Resources>
+        <!-- Cores do Tema -->
+        <SolidColorBrush x:Key="InputBackgroundBrush" Color="{DynamicResource InputBackgroundColor}"/>
+        <SolidColorBrush x:Key="InputForegroundBrush" Color="{DynamicResource InputForegroundColor}"/>
+        <SolidColorBrush x:Key="InputBorderBrush" Color="{DynamicResource InputBorderColor}"/>
+        
+        <SolidColorBrush x:Key="PrimaryButtonBackgroundBrush" Color="{DynamicResource PrimaryButtonBackgroundColor}"/>
+        <SolidColorBrush x:Key="PrimaryButtonForegroundBrush" Color="{DynamicResource PrimaryButtonForegroundColor}"/>
+        <SolidColorBrush x:Key="SecondaryButtonBackgroundBrush" Color="{DynamicResource SecondaryButtonBackgroundColor}"/>
+        <SolidColorBrush x:Key="SecondaryButtonForegroundBrush" Color="{DynamicResource SecondaryButtonForegroundColor}"/>
+        <SolidColorBrush x:Key="DangerButtonBackgroundBrush" Color="{DynamicResource DangerButtonBackgroundColor}"/>
+        <SolidColorBrush x:Key="DangerButtonForegroundBrush" Color="{DynamicResource DangerButtonForegroundColor}"/>
+        <SolidColorBrush x:Key="TextColorBrush" Color="{DynamicResource TextColor}"/>
+        <SolidColorBrush x:Key="MenuItemHoverBrush" Color="{DynamicResource MenuItemHoverColor}"/>
+    </Styles.Resources>
+    
+    <!-- Estilo Base para UserControl (páginas) -->
+    <Style Selector="UserControl">
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+    </Style>
+    
+    <!-- Estilo para TextBlock -->
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextColorBrush}"/>
+    </Style>
+    
+    <!-- Estilo para MenuItem -->
+    <Style Selector="MenuItem">
+        <Setter Property="Foreground" Value="{DynamicResource MenuForegroundBrush}"/>
+    </Style>
+    
+    <!-- Estilo para MenuItem:pointerover -->
+    <Style Selector="MenuItem:pointerover /template/ Border">
+        <Setter Property="Background" Value="{DynamicResource MenuItemHoverBrush}"/>
+    </Style>
+
+    <!-- Estilo para TextBox -->
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="TextBox:pointerover">
+        <Setter Property="Background" Value="{DynamicResource InputHoverBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputHoverBorderBrush}"/>
+    </Style>
+
+    <Style Selector="TextBox:focus">
+        <Setter Property="BorderBrush" Value="{DynamicResource InputFocusBorderBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+    </Style>
+
+    <!-- Estilo para ComboBox -->
+    <Style Selector="ComboBox">
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="ComboBox:pointerover">
+        <Setter Property="Background" Value="{DynamicResource InputHoverBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputHoverBorderBrush}"/>
+    </Style>
+
+    <!-- Estilo para AutoCompleteBox -->
+    <Style Selector="AutoCompleteBox">
+        <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+    </Style>
+
+    <Style Selector="AutoCompleteBox:pointerover">
+        <Setter Property="Background" Value="{DynamicResource InputHoverBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InputHoverBorderBrush}"/>
+    </Style>
+
+    <Style Selector="Button.menuItem">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Foreground" Value="{DynamicResource MenuForegroundBrush}"/>
+    </Style>
+
+    <Style Selector="Button.menuItem:pointerover">
+        <Setter Property="Background" Value="{DynamicResource MenuItemHoverBackgroundBrush}"/>
+    </Style>
+
+    <Style Selector="ListBoxItem">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <!-- Estilo base para botões -->
+    <Style Selector="Button">
+        <Setter Property="CornerRadius" Value="3"/>
+        <Setter Property="Padding" Value="15,8"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <!-- Botão de Sucesso (Verde) -->
+    <Style Selector="Button.success">
+        <Setter Property="Background" Value="#2ECC71"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style Selector="Button.success:pointerover">
+        <Setter Property="Background" Value="#27AE60"/>
+    </Style>
+
+    <Style Selector="Button.success:pressed">
+        <Setter Property="Background" Value="#219A52"/>
+    </Style>
+
+    <!-- Botão de Perigo (Vermelho) -->
+    <Style Selector="Button.danger">
+        <Setter Property="Background" Value="#E74C3C"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+    <Style Selector="Button.danger:pointerover">
+        <Setter Property="Background" Value="#C0392B"/>
+    </Style>
+
+    <Style Selector="Button.danger:pressed">
+        <Setter Property="Background" Value="#A93226"/>
+    </Style>
+</Styles> 

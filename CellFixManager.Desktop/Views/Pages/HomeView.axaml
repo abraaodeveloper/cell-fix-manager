@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CellFixManager.Desktop.ViewModels.Pages"
+             x:Class="CellFixManager.Desktop.Views.Pages.HomeView"
+             x:DataType="vm:HomeViewModel">
+    
+    <Border Background="{DynamicResource InputBackgroundBrush}"
+            Padding="20">
+        <Grid RowDefinitions="Auto,*">
+            <!-- Área Superior com Logo e Busca -->
+            <StackPanel Grid.Row="0" 
+                      HorizontalAlignment="Center"
+                      Margin="0,40,0,40"
+                      Spacing="30">
+                
+                <!-- Logo -->
+                <Border Width="200" 
+                        Height="200" 
+                        CornerRadius="100"
+                        Background="{DynamicResource InputBackgroundBrush}"
+                        BorderBrush="{DynamicResource InputBorderBrush}"
+                        BorderThickness="1">
+                    <Image Source="{Binding LogoPath}" 
+                           Stretch="Uniform"
+                           Margin="20"/>
+                </Border>
+                
+                <!-- Busca -->
+                <Border Background="{DynamicResource InputBackgroundBrush}"
+                        BorderBrush="{DynamicResource InputBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="25"
+                        Width="500"
+                        Height="50">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <!-- Ícone de Busca -->
+                        <PathIcon Grid.Column="0"
+                                 Data="{StaticResource search_regular}"
+                                 Width="20"
+                                 Height="20"
+                                 Margin="15,0,10,0"
+                                 Foreground="{DynamicResource InputForegroundBrush}"/>
+                        
+                        <!-- Campo de Busca -->
+                        <TextBox Grid.Column="1"
+                                Watermark="Buscar ordem de serviço..."
+                                BorderThickness="0"
+                                Background="Transparent"
+                                VerticalAlignment="Center"
+                                Margin="0,0,15,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            
+            <!-- Área de Conteúdo -->
+            <Grid Grid.Row="1" 
+                  Margin="0,20,0,0"
+                  RowDefinitions="Auto,*">
+                
+                <!-- Título da Seção -->
+                <TextBlock Text="Ordens de Serviço Recentes"
+                         FontSize="20"
+                         FontWeight="SemiBold"
+                         Margin="0,0,0,20"/>
+                
+                <!-- Lista de OS Recentes -->
+                <ListBox Grid.Row="1"
+                        Background="Transparent"
+                        BorderThickness="0">
+                    <!-- Aqui você pode adicionar os itens da lista -->
+                </ListBox>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl> 

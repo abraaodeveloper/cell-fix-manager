@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CellFixManager.Desktop.ViewModels.Pages"
+             xmlns:components="using:CellFixManager.Desktop.Views.Components"
+             x:Class="CellFixManager.Desktop.Views.Pages.OrdemServicoView"
+             x:DataType="vm:OrdemServicoViewModel">
+    
+    <DockPanel>
+        <components:SearchBar DockPanel.Dock="Top"/>
+
+        <DataGrid AutoGenerateColumns="False" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nº OS" Width="80"/>
+                <DataGridTextColumn Header="Cliente" Width="200"/>
+                <DataGridTextColumn Header="Telefone" Width="120"/>
+                <DataGridTextColumn Header="Aparelho" Width="150"/>
+                <DataGridTextColumn Header="Status" Width="120"/>
+                <DataGridTextColumn Header="Data Entrada" Width="120"/>
+                <DataGridTextColumn Header="Previsão" Width="120"/>
+                <DataGridTemplateColumn Header="Ações" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="✏️" ToolTip.Tip="Editar"/>
+                                <Button Content="🖨️" ToolTip.Tip="Imprimir"/>
+                                <Button Content="📱" ToolTip.Tip="WhatsApp"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl> 

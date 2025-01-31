@@ -6,6 +6,8 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using CellFixManager.Desktop.ViewModels;
 using CellFixManager.Desktop.Views;
+using CellFixManager.Desktop.Services;
+using System;
 
 namespace CellFixManager.Desktop;
 
@@ -13,23 +15,39 @@ public partial class App : Application
 {
     public override void Initialize()
     {
-        AvaloniaXamlLoader.Load(this);
+        try
+        {
+            AvaloniaXamlLoader.Load(this);
+            LogService.Info("Aplicação inicializada com sucesso");
+        }
+        catch (Exception ex)
+        {
+            LogService.Error("Erro ao inicializar a aplicação", ex);
+            throw;
+        }
     }
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        try
         {
-            // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
-            // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
-            DisableAvaloniaDataAnnotationValidation();
-            desktop.MainWindow = new MainWindow
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                DataContext = new MainWindowViewModel(),
-            };
+                ThemeResourceService.UpdateThemeResources(); // Inicializa os recursos do tema
+                LogService.Info("Configurando janela principal");
+                desktop.MainWindow = new MainWindow
+                {
+                    DataContext = new MainWindowViewModel()
+                };
+            }
+            base.OnFrameworkInitializationCompleted();
+            LogService.Info("Framework inicializado com sucesso");
         }
-
-        base.OnFrameworkInitializationCompleted();
+        catch (Exception ex)
+        {
+            LogService.Error("Erro ao completar inicialização do framework", ex);
+            throw;
+        }
     }
 
     private void DisableAvaloniaDataAnnotationValidation()

@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:CellFixManager.Desktop.ViewModels.Pages"
+             x:Class="CellFixManager.Desktop.Views.Pages.ClientesView"
+             x:DataType="vm:ClientesViewModel">
+    
+    <Border Background="{DynamicResource InputBackgroundBrush}"
+            Padding="20">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10">
+                <Button Content="➕ Novo Cliente" Margin="0,0,10,0"/>
+                <TextBox Width="300" Watermark="Buscar cliente..." Margin="0,0,10,0"/>
+                <Button Content="🔍 Buscar"/>
+            </StackPanel>
+
+            <DataGrid AutoGenerateColumns="False" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Código" Width="80"/>
+                    <DataGridTextColumn Header="Nome" Width="200"/>
+                    <DataGridTextColumn Header="Telefone" Width="120"/>
+                    <DataGridTextColumn Header="Email" Width="200"/>
+                    <DataGridTextColumn Header="Última OS" Width="100"/>
+                    <DataGridTemplateColumn Header="Ações" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="✏️" ToolTip.Tip="Editar"/>
+                                    <Button Content="📱" ToolTip.Tip="WhatsApp"/>
+                                    <Button Content="📋" ToolTip.Tip="Histórico"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+    </Border>
+</UserControl> 

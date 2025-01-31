@@ -7,14 +7,108 @@
         x:Class="CellFixManager.Desktop.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="CellFixManager.Desktop">
+        Title="CellFixManager.Desktop"
+        Width="1280" Height="800"
+        Background="{DynamicResource BackgroundBrush}">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <!-- Menu Vertical -->
+        <Grid IsVisible="{Binding IsVerticalMenu}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <!-- Menu Lateral -->
+            <Border Grid.Column="0" 
+                    Background="{DynamicResource MenuBackgroundBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="0,0,1,0">
+                <DockPanel Margin="10">
+                    <TextBlock Text="CellFix Manager" 
+                             FontSize="20" 
+                             FontWeight="Bold"
+                             Foreground="{DynamicResource MenuForegroundBrush}"
+                             DockPanel.Dock="Top"
+                             Margin="0,0,0,20"/>
+                    
+                    <ListBox Background="Transparent"
+                            BorderThickness="0">
+                        <ListBoxItem>
+                            <Button Content="Início"
+                                   Command="{Binding NavigateToHome}"
+                                   Classes="menuItem"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Button Content="Nova OS"
+                                   Command="{Binding NavigateToNovaOS}"
+                                   Classes="menuItem"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Button Content="Clientes"
+                                   Command="{Binding NavigateToClientes}"
+                                   Classes="menuItem"/>
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            <Button Content="Configurações"
+                                   Command="{Binding NavigateToConfiguracoes}"
+                                   Classes="menuItem"/>
+                        </ListBoxItem>
+                    </ListBox>
+                </DockPanel>
+            </Border>
+
+            <!-- Conteúdo -->
+            <ContentControl Grid.Column="1" 
+                          Content="{Binding CurrentPage}"/>
+        </Grid>
+
+        <!-- Menu Horizontal -->
+        <Grid IsVisible="{Binding !IsVerticalMenu}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Menu Superior -->
+            <Border Grid.Row="0" 
+                    Background="{DynamicResource MenuBackgroundBrush}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="0,0,0,1">
+                <DockPanel Margin="10">
+                    <TextBlock Text="CellFix Manager" 
+                             FontSize="20" 
+                             FontWeight="Bold"
+                             Foreground="{DynamicResource MenuForegroundBrush}"
+                             DockPanel.Dock="Left"
+                             VerticalAlignment="Center"
+                             Margin="0,0,20,0"/>
+                    
+                    <StackPanel Orientation="Horizontal" 
+                              Spacing="10">
+                        <Button Content="Início"
+                               Command="{Binding NavigateToHome}"
+                               Classes="menuItem"/>
+                        <Button Content="Nova OS"
+                               Command="{Binding NavigateToNovaOS}"
+                               Classes="menuItem"/>
+                        <Button Content="Clientes"
+                               Command="{Binding NavigateToClientes}"
+                               Classes="menuItem"/>
+                        <Button Content="Configurações"
+                               Command="{Binding NavigateToConfiguracoes}"
+                               Classes="menuItem"/>
+                    </StackPanel>
+                </DockPanel>
+            </Border>
+
+            <!-- Conteúdo -->
+            <ContentControl Grid.Row="1" 
+                          Content="{Binding CurrentPage}"/>
+        </Grid>
+    </Grid>
 </Window>
