@@ -1,0 +1,50 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Diagrama de Componentes - Sistema de Ordem de Serviço
+
+actor "Técnico" as technician
+actor "Cliente" as customer
+
+package "Sistema Desktop (Uso Técnico)" {
+    [WPF Application] as desktop
+    note right of desktop
+        Gerenciamento de OS
+        Cadastros
+        Relatórios
+    end note
+}
+
+package "Mobile App (Uso Técnico)" {
+    [React Native App] as mobile
+    note right of mobile
+        Fotos do Serviço
+        Atualização de Status
+        Histórico de OS
+    end note
+}
+
+cloud "Cloud Services" {
+    [API Server] as api
+    [Image Storage] as storage
+    database "Database" as db
+    [WhatsApp API] as whatsapp
+}
+
+technician --> desktop
+technician --> mobile
+
+mobile -down-> api : HTTP/REST
+desktop -right-> api : HTTP/REST
+api -right-> storage : Salva Imagens
+api <-down-> db : CRUD Operations
+api -down-> whatsapp : Envia Notificações
+whatsapp -down-> customer : Mensagens de Status
+
+note bottom of customer
+    Cliente recebe apenas
+    notificações via WhatsApp
+    sobre status da OS
+end note
+
+@enduml

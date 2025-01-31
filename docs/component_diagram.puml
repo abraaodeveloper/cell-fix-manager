@@ -1,0 +1,25 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Diagrama de Componentes - Sistema de Ordem de Serviço
+
+package "Sistema Desktop" {
+    [WPF Application] as desktop
+}
+
+package "Mobile App" {
+    [React Native App] as mobile
+}
+
+cloud "Cloud Services" {
+    [API Server] as api
+    [Image Storage] as storage
+    database "Database" as db
+}
+
+mobile -down-> api : HTTP/REST
+api -right-> storage : Salva Imagens
+api <-down-> db : CRUD Operations
+desktop <-right-> api : HTTP/REST
+
+@enduml

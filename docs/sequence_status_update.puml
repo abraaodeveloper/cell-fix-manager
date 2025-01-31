@@ -1,0 +1,29 @@
+@startuml
+actor Tecnico
+actor Cliente
+participant "App Mobile" as Mobile
+participant "Desktop WPF" as Desktop
+participant "Servidor API" as API
+participant "Serviço de Armazenamento" as Storage
+participant "WhatsApp API" as WhatsApp
+
+== Atualização de Status pelo Técnico ==
+Tecnico -> Mobile : Captura foto do serviço
+Mobile -> API : Envia foto e atualização de status
+API -> Storage : Salva imagem
+API -> WhatsApp : Envia notificação de status
+WhatsApp -> Cliente : Recebe mensagem com status\ne foto do serviço
+
+== Consulta pelo Técnico ==
+Tecnico -> Desktop : Acessa histórico da OS
+Desktop -> API : Busca informações
+API -> Desktop : Retorna dados da OS\ne histórico de status
+Desktop -> Tecnico : Exibe informações
+
+note right of Cliente
+  Cliente apenas recebe
+  notificações passivas
+  via WhatsApp
+end note
+
+@enduml
